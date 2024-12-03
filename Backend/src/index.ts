@@ -12,10 +12,12 @@ import { ContentModel, dbConnect, LinkModel, UserModel } from "./database";
 import { JWT_Secret } from "./config";
 import { userMiddelware } from "./middleware";
 import { random } from "./utils";
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 dbConnect()
   .then((res) => console.log("Database connected"))

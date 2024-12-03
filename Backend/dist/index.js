@@ -9,8 +9,10 @@ const database_1 = require("./database");
 const config_1 = require("./config");
 const middleware_1 = require("./middleware");
 const utils_1 = require("./utils");
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
+app.use((0, cors_1.default)());
 (0, database_1.dbConnect)()
     .then((res) => console.log("Database connected"))
     .catch((err) => console.log(`Error Connecte to the Databas ${err}`));

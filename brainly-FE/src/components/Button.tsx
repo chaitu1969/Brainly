@@ -5,6 +5,8 @@ interface ButtonProps {
   text: string;
   startIcon?: ReactElement;
   onClick?: () => void;
+  fullWidth?: boolean;
+  loading?: boolean;
 }
 
 const varientClasses = {
@@ -18,7 +20,7 @@ const defaultCss =
 export function Button(props: ButtonProps) {
   return (
     <button
-      className={`${varientClasses[props.variant]} ${defaultCss}`}
+      className={`${varientClasses[props.variant]} ${defaultCss} ${props.fullWidth ? "w-full" : null} ${props.loading ? "disabled opacity-50" : ""}`}
       onClick={props.onClick}
     >
       <div className="pr-2"> {props.startIcon} </div>
